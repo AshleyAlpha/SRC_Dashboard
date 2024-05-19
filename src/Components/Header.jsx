@@ -14,7 +14,7 @@ const Header = () => {
         <FontAwesomeIcon icon={faSearch} className="ml-2" />
       </div>
       <h1 className="text-center p-4 ">Safety Ride Connect</h1>
-      <h1 className="text-left p-4">This is Header</h1>
+      <h1 className="text-left p-4">Header</h1>
       
     </div>
   );

@@ -17,7 +17,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col justify-between">
       <div className="flex flex-col gap-3 p-4 text-2xl font-bold">
         <Link to="/Dashboard" className="text-green-700 flex items-center">
           <AiOutlineDashboard className="mr-2" />
@@ -32,14 +32,13 @@ const SideBar = () => {
           {expandUsers && (
             <div className="pl-6">
               <Link to="/Users/Drivers" className="text-green-700 flex items-center">
-              <FaCarSide className="mr-2" />
+                <FaCarSide className="mr-2" />
                 Drivers
               </Link><br />
               <Link to="/Users/Customers" className="text-green-700 flex items-center">
-              <ImUsers className="mr-2" />
+                <ImUsers className="mr-2" />
                 Customers
               </Link>
-              
             </div>
           )}
         </div>
@@ -49,32 +48,26 @@ const SideBar = () => {
           Services
         </Link>
 
-        <Link
-          to="/Transactions"
-          className="text-green-700 flex items-center"
-        >
+        <Link to="/Transactions" className="text-green-700 flex items-center">
           <AiOutlineTransaction className="mr-2" />
           Transactions
         </Link>
 
-        <Link
-          to="/Testimonials"
-          className="text-green-700 flex items-center"
-        >
+        <Link to="/Testimonials" className="text-green-700 flex items-center">
           <BiMessageDetail className="mr-2" />
           Testimonials
         </Link>
         
         <Link to="/Bookings" className="text-green-700 flex items-center">
-              <ImUsers className="mr-2" />
-                Bookings
-              </Link>
-
-        <Link to="/Settings" className="text-green-700 flex items-center">
+          <ImUsers className="mr-2" />
+          Bookings
+        </Link>
+      </div>
+      <div className="p-4">
+        <Link to="/Settings" className="text-green-700 flex items-center text-2xl font-bold">
           <FiSettings className="mr-2" />
           Settings
         </Link>
-
       </div>
     </div>
   );
