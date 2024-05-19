@@ -1,12 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Customers from './Customers';
+
+const data = [
+  { id: 1, name: 'John Doe', email: 'john@example.com', phone: '123-456-7890' },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com', phone: '987-654-3210' },
+  { id: 3, name: 'Alpha Ashley', email: 'mashleyalpha@gmail.com', phone: '+250782387280' },
+  // Add more customer data as needed
+];
 
 const Dashboard = () => {
   return (
-    <div className='w-full'>This is Dashboard</div>
-  )
-}
+    <div>
+      <h1>Customer Dashboard</h1>
+      <Customers data={data} />
+    </div>
+  );
+};
 
-export default Dashboard
-
-
-
+export default Dashboard;

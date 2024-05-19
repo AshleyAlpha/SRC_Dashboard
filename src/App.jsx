@@ -11,22 +11,21 @@ import Drivers from "./Components/Pages/Drivers";
 import Settings from "./Components/Pages/Settings";
 import Bookings from "./Components/Pages/Bookings";
 
-
 function App() {
   return (
     <div className="w-full">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/Dashboard" element={<Dashboard />} />
-            <Route path="/Services" element={<Services />} />
-            <Route path="/Testimonials" element={<Testimonials />} />
-            <Route path="/Transactions" element={<Transactions />} />
-            <Route exact path="/Layout/Users" element={<Users />} />
-          <Route path="/Users/Drivers" element={<Drivers />} />
-          <Route path="/Users/Customers" element={<Customers/>} />
-            <Route path="/Settings" element={<Settings />} />
-            <Route path="/Bookings" element={<Bookings />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="services" element={<Services />} />
+            <Route path="testimonials" element={<Testimonials />} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="users" element={<Users />} />
+            <Route path="users/drivers" element={<Drivers />} />
+            <Route path="users/customers" element={<Customers  />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="bookings" element={<Bookings />} />
           </Route>
         </Routes>
       </BrowserRouter>

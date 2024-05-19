@@ -2,7 +2,7 @@ import React from 'react'
 
 const Bookings = () => {
   return (
-    <div>Bookings</div>
+    <div>Bookings are here!</div>
   )
 }
 

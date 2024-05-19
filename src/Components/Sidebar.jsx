@@ -39,6 +39,7 @@ const SideBar = () => {
               <ImUsers className="mr-2" />
                 Customers
               </Link>
+              
             </div>
           )}
         </div>
@@ -63,11 +64,17 @@ const SideBar = () => {
           <BiMessageDetail className="mr-2" />
           Testimonials
         </Link>
+        
+        <Link to="/Bookings" className="text-green-700 flex items-center">
+              <ImUsers className="mr-2" />
+                Bookings
+              </Link>
 
         <Link to="/Settings" className="text-green-700 flex items-center">
           <FiSettings className="mr-2" />
           Settings
         </Link>
+
       </div>
     </div>
   );
