@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Customers from './Customers';
+import axios from 'axios';
 
 const Dashboard = () => {
   const [customerData, setCustomerData] = useState([
