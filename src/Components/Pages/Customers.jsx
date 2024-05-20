@@ -63,10 +63,11 @@ const Customers = ({ data }) => {
         <Bar data={chartData} options={chartOptions} />
       </div>
       <div className="overflow-x-auto">
-        <table {...getTableProps()} className="min-w-full bg-white border-collapse">
+      <table {...getTableProps()} className="min-w-full bg-white border-collapse">
+          {/* Added inline style to set width to 100% */}
           <thead>
             {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()} className="bg-gray-800 text-white">
+              <tr {...headerGroup.getHeaderGroupProps()} className="bg-green-700 text-white">
                 {headerGroup.headers.map(column => (
                   <th {...column.getHeaderProps()} className="p-3 border-b border-gray-300">
                     {column.render('Header')}

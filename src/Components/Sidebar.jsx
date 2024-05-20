@@ -31,14 +31,15 @@ const SideBar = () => {
           </div>
           {expandUsers && (
             <div className="pl-6">
-              <Link to="/Users/Drivers" className="text-green-700 flex items-center">
-                <FaCarSide className="mr-2" />
-                Drivers
-              </Link><br />
               <Link to="/Users/Customers" className="text-green-700 flex items-center">
                 <ImUsers className="mr-2" />
                 Customers
               </Link>
+              <Link to="/Users/Drivers" className="text-green-700 flex items-center">
+                <FaCarSide className="mr-2" />
+                Drivers
+              </Link><br />
+              
             </div>
           )}
         </div>

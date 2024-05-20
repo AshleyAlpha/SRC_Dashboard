@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleDropdownToggle = () => {
     setDropdownVisible(!dropdownVisible);
@@ -24,6 +25,10 @@ const Header = () => {
     };
   }, []);
 
+  const navigateToDashboard = () => {
+    navigate('/');
+  };
+
   return (
     <div className="w-full rounded-md bg-[#a3d6a3] text-2xl text-green-700 border mb-4 flex justify-between items-center">
       <div className="p-4 flex items-center">
@@ -34,8 +39,15 @@ const Header = () => {
         />
         <FontAwesomeIcon icon={faSearch} className="ml-2" />
       </div>
-      <h1 className="text-center p-4">Safety Ride Connect</h1>
+      <button
+          className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg mr-4"
+          onClick={navigateToDashboard}
+        >
+          Back
+        </button>
+      <h1 className="text-center p-4">SAFETY RIDE CONNECT</h1>
       <div className="relative p-4 m-4">
+        
         <button
           className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg"
           onClick={handleDropdownToggle}
