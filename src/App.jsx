@@ -10,7 +10,7 @@ import Customers from "./Components/Pages/Customers";
 import Drivers from "./Components/Pages/Drivers";
 import Settings from "./Components/Pages/Settings";
 import Bookings from "./Components/Pages/Bookings";
-
+import CustomerForm from "./Components/Pages/Addcustomer";
 function App() {
   return (
     <div className="w-full">
@@ -18,12 +18,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="Addcustomer" element={<CustomerForm />} />
             <Route path="services" element={<Services />} />
             <Route path="testimonials" element={<Testimonials />} />
             <Route path="transactions" element={<Transactions />} />
             <Route path="users" element={<Users />} />
             <Route path="users/drivers" element={<Drivers />} />
-            <Route path="users/customers" element={<Customers  />} />
+            <Route path="users/customers" element={<Customers />} />
             <Route path="settings" element={<Settings />} />
             <Route path="bookings" element={<Bookings />} />
           </Route>
