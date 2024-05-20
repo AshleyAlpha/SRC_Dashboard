@@ -43,7 +43,7 @@ const CustomerForm = ({ addCustomer }) => {
 
   return (
     <div className="mx-auto max-w-md pt-16">
-      <h2 className="text-lg mb-2">Add Customer</h2>
+      <h2 className="text-lg mb-2">Add Service</h2>
       <form className="items-center" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-1" htmlFor="name">Name:</label>

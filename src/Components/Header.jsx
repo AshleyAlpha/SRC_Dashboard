@@ -41,27 +41,21 @@ const Header = () => {
       </div>
       <button
           className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg mr-4"
-          onClick={navigateToDashboard}
         >
           Back
         </button>
+        
       <h1 className="text-center p-4">SAFETY RIDE CONNECT</h1>
       <div className="relative p-4 m-4">
-        
+
+        <NavLink to="/Addcustomer">
         <button
           className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg"
-          onClick={handleDropdownToggle}
         >
-          Add User
+          Add Service
         </button>
-        {dropdownVisible && (
-          <div ref={dropdownRef} className="absolute right-0 mt-2 bg-white border rounded-md shadow-lg z-10">
-            <div className="p-2 hover:bg-green-200 cursor-pointer text-lg">
-              <NavLink to="/Addcustomer">Customer</NavLink>
-            </div>
-            <div className="p-2 hover:bg-green-200 cursor-pointer text-lg">Driver</div>
-          </div>
-        )}
+        </NavLink>
+        
       </div>
     </div>
   );
