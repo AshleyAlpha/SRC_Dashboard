@@ -41,7 +41,7 @@ const SideBar = () => {
           )}
         </div>
 
-        <Link to="/Services" className="text-green-700 flex items-center">
+        <Link to="/ServicePage" className="text-green-700 flex items-center">
           <FaServicestack className="mr-2" />
           Services
         </Link>

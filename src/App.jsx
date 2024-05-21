@@ -12,6 +12,7 @@ import Drivers from "./Components/Pages/Drivers";
 import Settings from "./Components/Pages/Settings";
 import Bookings from "./Components/Pages/Bookings";
 import ServiceForm from "./Components/Pages/Addservice";
+import ServicePage from "./Components/Pages/ServicePage";
 function App() {
   return (
     <div className="w-full">
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="Addservice" element={<ServiceForm />} />
+            <Route path="ServicePage" element={<ServicePage />} />
             <Route path="services" element={<Services />} />
             <Route path="testimonials" element={<Testimonials />} />
             <Route path="transactions" element={<Transactions />} />
