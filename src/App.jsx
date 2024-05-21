@@ -10,7 +10,7 @@ import Customers from "./Components/Pages/Customers";
 import Drivers from "./Components/Pages/Drivers";
 import Settings from "./Components/Pages/Settings";
 import Bookings from "./Components/Pages/Bookings";
-import CustomerForm from "./Components/Pages/Addcustomer";
+import ServiceForm from "./Components/Pages/Addservice";
 function App() {
   return (
     <div className="w-full">
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="Addcustomer" element={<CustomerForm />} />
+            <Route path="Addservice" element={<ServiceForm />} />
             <Route path="services" element={<Services />} />
             <Route path="testimonials" element={<Testimonials />} />
             <Route path="transactions" element={<Transactions />} />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTable } from 'react-table';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -44,7 +44,7 @@ const Customers = ({ data }) => {
     ]
   };
 
-  const chartOptions = {
+  const options = {
     responsive: true,
     plugins: {
       legend: {
@@ -52,19 +52,18 @@ const Customers = ({ data }) => {
       },
       title: {
         display: true,
-        text: 'Customer Data'
+        text: 'Customer IDs by Name'
       }
     }
   };
 
   return (
-    <div className="p-6">
-      <div className="mb-6">
-        <Bar data={chartData} options={chartOptions} />
+    <div className="p-6 w-[80vw] pl-16">
+      <div className="mb-6 w-[70vw]">
+        <Bar data={chartData} options={options} />
       </div>
-      <div className="overflow-x-auto">
-      <table {...getTableProps()} className="min-w-full bg-white border-collapse">
-          {/* Added inline style to set width to 100% */}
+      <div className="overflow-x-auto w-full">
+        <table {...getTableProps()} className="min-w-full bg-white border-collapse">
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()} className="bg-green-700 text-white">

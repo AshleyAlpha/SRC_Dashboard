@@ -39,16 +39,19 @@ const Header = () => {
         />
         <FontAwesomeIcon icon={faSearch} className="ml-2" />
       </div>
+
+      <NavLink to="/">
       <button
           className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg mr-4"
         >
-          Back
+          Back to Dashboard
         </button>
-        
-      <h1 className="text-center p-4">SAFETY RIDE CONNECT</h1>
+        </NavLink>
+
+      <h1 className="text-center p-4">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE</h1>
       <div className="relative p-4 m-4">
 
-        <NavLink to="/Addcustomer">
+        <NavLink to="/Addservice">
         <button
           className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg"
         >
