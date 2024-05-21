@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
 import {
   FaUsers,
@@ -10,6 +10,8 @@ import {
 } from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
 import { BiMessageDetail } from "react-icons/bi";
+import { GrUserAdmin } from "react-icons/gr";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 // import { AiOutlineTransaction } from "react-icons/ai";
 // import { FiSettings } from "react-icons/fi";
 
@@ -43,8 +45,6 @@ const SideBar = () => {
           Services
         </Link>
 
-       
-
         {/* <Link to="/Transactions" className="text-green-700 flex items-center">
           <AiOutlineTransaction className="mr-2" />
           Transactions
@@ -60,12 +60,17 @@ const SideBar = () => {
           Bookings
         </Link> */}
       </div>
+
       <div className="p-4">
-        {/* <Link to="/Settings" className="text-green-700 flex items-center text-2xl font-bold">
-          <FiSettings className="mr-2" />
-          Settings
-        </Link> */}
-      </div>
+      <NavLink to="/LogoutForm">
+        <div className="flex items-center">
+          <MdOutlineAdminPanelSettings className="mr-3 text-3xl text-green-700" /> {/* Adjusted icon size and color */}
+          <button className="bg-green-700 text-green-200 py-2 px-6 rounded-full text-lg hover:bg-green-600 transition duration-300">
+            Logout
+          </button>
+        </div>
+      </NavLink>
+    </div>
     </div>
   );
 };

@@ -37,10 +37,10 @@ const ServiceForm = ({ addService }) => {
 
   return (
     <div className="mx-auto pt-16 w-[50%]">
-      <h2 className="text-2xl text-green-700 font-bold align-center mb-2 ml-56">Add a Service</h2>
+      <h2 className="text-2xl text-green-700 font-bold align-center mb-2 ml-56">Add Service</h2>
       <form className="items-center bg-green-100 w-full px-28 py-16" onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-4 text-2xl text-green-700 font-bold" htmlFor="title">Service Title:</label>
+          <label className="block mb-4 text-2xl text-green-700 font-bold" htmlFor="title">Service_Title:</label>
           <input
             id="title"
             type="text"
@@ -51,7 +51,7 @@ const ServiceForm = ({ addService }) => {
           {errors.title && <p className="text-red-500">{errors.title}</p>}
         </div>
         <div className="mb-4">
-          <label className="block mb-4 text-2xl text-green-700 font-bold" htmlFor="description">Service Description:</label>
+          <label className="block mb-4 text-2xl text-green-700 font-bold" htmlFor="description">Service_Description:</label>
           <textarea
             id="description"
             value={description}

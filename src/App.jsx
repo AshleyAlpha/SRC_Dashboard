@@ -9,7 +9,7 @@ import Customers from "./Components/Pages/Customers";
 import Drivers from "./Components/Pages/Drivers";
 import ServiceForm from "./Components/Pages/Addservice";
 import ServicePage from "./Components/Pages/ServicePage";
-
+import LogoutForm from "./Components/Pages/LogoutForm";
 
 function App() {
   return (
@@ -21,9 +21,10 @@ function App() {
             <Route path="/Addservice" element={<ServiceForm />} />
             <Route path="/ServicePage" element={<ServicePage />} />
             <Route path="/Services" element={<Services />} />
-            <Route path="/Testimonials" element={<Testimonials />} />
             <Route path="/Drivers" element={<Drivers />} />
             <Route path="/Customers" element={<Customers />} />
+            <Route path="/Testimonials" element={<Testimonials />} />
+            <Route path="/LogoutForm" element={<LogoutForm />} />
           </Route>
         </Routes>
       </BrowserRouter>

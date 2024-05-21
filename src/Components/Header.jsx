@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header w-full rounded-md bg-[#a3d6a3] text-2xl text-green-700 border mb-4 flex justify-between items-center">
+    <div className="header w-full  bg-[#a3d6a3] text-2xl text-green-700 border mb-4 flex justify-between items-center">
       <div className="p-4 flex items-center">
         <input
           type="text"
@@ -48,7 +48,7 @@ const Header = () => {
         </button>
         </NavLink>
 
-      <h1 className="text-center p-4 font-bold">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE</h1>
+      <h1 className="text-center p-4 font-bold">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE!</h1>
       <div className="relative p-4 m-4">
 
         <NavLink to="/Addservice">
