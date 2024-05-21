@@ -4,33 +4,33 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const dropdownRef = useRef(null);
+  // const [dropdownVisible, setDropdownVisible] = useState(false);
+  // const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleDropdownToggle = () => {
-    setDropdownVisible(!dropdownVisible);
-  };
+  // const handleDropdownToggle = () => {
+  //   setDropdownVisible(!dropdownVisible);
+  // };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownVisible(false);
-    }
-  };
+  // const handleClickOutside = (event) => {
+  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //     setDropdownVisible(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   const navigateToDashboard = () => {
     navigate('/');
   };
 
   return (
-    <div className="w-full rounded-md bg-[#a3d6a3] text-2xl text-green-700 border mb-4 flex justify-between items-center">
+    <div className="header w-full rounded-md bg-[#a3d6a3] text-2xl text-green-700 border mb-4 flex justify-between items-center">
       <div className="p-4 flex items-center">
         <input
           type="text"
