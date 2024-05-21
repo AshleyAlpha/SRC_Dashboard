@@ -1,6 +1,8 @@
+// ServicePage.js
 import React, { useState } from 'react';
 import ServiceForm from './Addservice';
 import Services from './Services';
+import ServiceChart from './ServiceChart';
 
 const ServicePage = () => {
   const [services, setServices] = useState([
@@ -34,6 +36,7 @@ const ServicePage = () => {
     <div className="ServicePage">
       {/* <ServiceForm addService={addService} /> */}
       <Services services={services} />
+      <ServiceChart services={services} />
     </div>
   );
 };
