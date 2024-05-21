@@ -1,33 +1,26 @@
 import React from 'react';
-// import airportImage from '../Images/airport.jpg';
-// import citytourImage from '../Images/citytour.webp';
 
 const Services = () => {
   const services = [
     {
       title: "Airport Transfers",
-      description: "Hassle-free transportation to and from all major airports. We monitor flight schedules to ensure timely pickups and drop-offs.",
-      // image: airportImage
+      description: "Hassle-free transportation to and from all major airports. We monitor flight schedules to ensure timely pickups and drop-offs."
     },
     {
       title: "Corporate Travel",
-      description: "Professional and reliable transport for business meetings, conferences, and events. Our executive cars provide a comfortable and efficient way to travel.",
-      // image: airportImage
+      description: "Professional and reliable transport for business meetings, conferences, and events. Our executive cars provide a comfortable and efficient way to travel."
     },
     {
       title: "City Tours",
-      description: "Explore the city with our customized tour packages. Our knowledgeable drivers can guide you to the best attractions and hidden gems.",
-      // image: citytourImage
+      description: "Explore the city with our customized tour packages. Our knowledgeable drivers can guide you to the best attractions and hidden gems."
     },
     {
       title: "Special Occasions",
-      description: "Make your special events unforgettable with our luxury taxi services. Perfect for weddings, proms, or any celebration.",
-      // image: citytourImage
+      description: "Make your special events unforgettable with our luxury taxi services. Perfect for weddings, proms, or any celebration."
     },
     {
       title: "Parcel Delivery",
-      description: "Need to send a package urgently? We offer fast and secure parcel delivery services within the city.",
-      // image: citytourImage
+      description: "Need to send a package urgently? We offer fast and secure parcel delivery services within the city."
     }
   ];
 
@@ -48,7 +41,6 @@ const Services = () => {
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-            {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th> */}
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
@@ -60,9 +52,6 @@ const Services = () => {
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="text-sm text-gray-500">{service.description}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                {/* <img className="w-20 h-20 object-cover" src={service.image} alt={service.title} /> */}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <button
