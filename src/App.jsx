@@ -20,16 +20,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="Addservice" element={<ServiceForm />} />
-            <Route path="ServicePage" element={<ServicePage />} />
-            <Route path="services" element={<Services />} />
-            <Route path="testimonials" element={<Testimonials />} />
-            <Route path="transactions" element={<Transactions />} />
-            <Route path="users" element={<Users />} />
-            <Route path="users/drivers" element={<Drivers />} />
-            <Route path="users/customers" element={<Customers />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="bookings" element={<Bookings />} />
+            <Route path="/Addservice" element={<ServiceForm />} />
+            <Route path="/ServicePage" element={<ServicePage />} />
+            <Route path="/Services" element={<Services />} />
+            <Route path="/Testimonials" element={<Testimonials />} />
+            <Route path="/Transactions" element={<Transactions />} />
+            {/* <Route path="users" element={<Users />} /> */}
+            <Route path="/Drivers" element={<Drivers />} />
+            <Route path="/Customers" element={<Customers />} />
+            {/* <Route path="/Settings" element={<Settings />} />
+            <Route path="/Bookings" element={<Bookings />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

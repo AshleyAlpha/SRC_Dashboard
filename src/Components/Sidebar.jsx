@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
-import { FaUsers, FaServicestack, FaChevronDown, FaChevronUp, FaCarSide } from "react-icons/fa";
+import {
+  FaUsers,
+  FaServicestack,
+  FaChevronDown,
+  FaChevronUp,
+  FaCarSide,
+} from "react-icons/fa";
 import { ImUsers } from "react-icons/im";
 import { BiMessageDetail } from "react-icons/bi";
 // import { AiOutlineTransaction } from "react-icons/ai";
@@ -22,29 +28,22 @@ const SideBar = () => {
           Dashboard
         </Link>
 
-        <div onClick={toggleUsers} className="cursor-pointer">
-          <div className="text-green-700 flex items-center">
-            <FaUsers className="mr-2" />
-            Users {expandUsers ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
-          {expandUsers && (
-            <div className="pl-6">
-              <Link to="/Users/Customers" className="text-green-700 flex items-center">
-                <ImUsers className="mr-2" />
-                Customers
-              </Link>
-              <Link to="/Users/Drivers" className="text-green-700 flex items-center">
-                <FaCarSide className="mr-2" />
-                Drivers
-              </Link>
-            </div>
-          )}
-        </div>
+        <Link to="/" className="text-green-700 flex items-center">
+          <ImUsers className="mr-2" />
+          Customers
+        </Link>
+
+        <Link to="/Drivers" className="text-green-700 flex items-center">
+          <FaCarSide className="mr-2" />
+          Drivers
+        </Link>
 
         <Link to="/ServicePage" className="text-green-700 flex items-center">
           <FaServicestack className="mr-2" />
           Services
         </Link>
+
+       
 
         {/* <Link to="/Transactions" className="text-green-700 flex items-center">
           <AiOutlineTransaction className="mr-2" />
@@ -55,7 +54,7 @@ const SideBar = () => {
           <BiMessageDetail className="mr-2" />
           Testimonials
         </Link>
-        
+
         {/* <Link to="/Bookings" className="text-green-700 flex items-center">
           <ImUsers className="mr-2" />
           Bookings

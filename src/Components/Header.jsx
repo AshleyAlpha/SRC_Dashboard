@@ -48,7 +48,7 @@ const Header = () => {
         </button>
         </NavLink>
 
-      <h1 className="text-center p-4">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE</h1>
+      <h1 className="text-center p-4 font-bold">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE</h1>
       <div className="relative p-4 m-4">
 
         <NavLink to="/Addservice">
