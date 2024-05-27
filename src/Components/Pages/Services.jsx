@@ -1,54 +1,106 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Services = ({ services = [] }) => {
+const Services = () => {
+  const [services, setServices] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [servicesPerPage] = useState(10); // Number of services per page, you can adjust this as needed
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://safety-drive-connect-backend-project-2.onrender.com/api/v1/allservices');
+        setServices(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      // Cleanup code here if needed
+    };
+  }, []);
+
+  const indexOfLastService = currentPage * servicesPerPage;
+  const indexOfFirstService = indexOfLastService - servicesPerPage;
+  const currentServices = services.slice(indexOfFirstService, indexOfLastService);
+
   const handleEdit = (index) => {
     console.log(`Edit service at index ${index}`);
-    // Implement your edit functionality here
   };
 
-  const handleDelete = (index) => {
-    console.log(`Delete service at index ${index}`);
-    // Implement your delete functionality here
+  const handleDelete = async (serviceId) => {
+    try {
+      await axios.delete("https://safety-drive-connect-backend-project-2.onrender.com/api/v1/service/:id=" + serviceId);
+      setServices(services.filter(service => service._id !== serviceId));
+    } catch (error) {
+      console.error('Error deleting service:', error);
+    }
   };
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="p-4">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-green-700">
-          <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-green-200 uppercase tracking-wider">Service</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-green-200 uppercase tracking-wider">Description</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-green-200 uppercase tracking-wider">Actions</th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {services.map((service, index) => (
-            <tr key={index}>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900">{service.title}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-500">{service.description}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <button
-                  onClick={() => handleEdit(index)}
-                  className="text-[#a3d6a3] mr-4"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(index)}
-                  className="text-green-700"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full table-auto">
+          <thead>
+            <tr className="bg-green-700 text-white">
+              <th className="py-2">Service</th>
+              <th className="py-2">Description</th>
+              <th className="py-2">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {currentServices.map((service, index) => (
+              <tr key={index} className="border-t">
+                <td className="py-2">{service.name}</td>
+                <td className="py-2">{service.description}</td>
+                <td className="py-2">
+                  <button onClick={() => handleEdit(index)} className="text-[#a3d6a3] mr-2 mb-2 block">Edit</button>
+                  <button onClick={() => handleDelete(service._id)} className="text-green-700 block">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="mt-4 flex justify-between items-center">
+        <Pagination
+          itemsPerPage={servicesPerPage}
+          totalItems={services.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
+  );
+};
+
+const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <nav>
+      <ul className="pagination">
+        {currentPage > 1 && (
+          <li className="page-item">
+            <button onClick={() => paginate(currentPage - 1)} className="page-link">Previous</button>
+          </li>
+        )}
+        {currentPage < pageNumbers.length && (
+          <li className="page-item">
+            <button onClick={() => paginate(currentPage + 1)} className="page-link">Next</button>
+          </li>
+        )}
+      </ul>
+    </nav>
   );
 };
 
