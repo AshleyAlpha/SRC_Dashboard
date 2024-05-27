@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ServicesChart from './ServiceChart'; // Import the chart component
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -75,6 +76,10 @@ const Services = () => {
           currentPage={currentPage}
         />
       </div>
+      <div className="mt-8">
+        <h2 className="text-2xl mb-4">Services Chart</h2>
+        <ServicesChart services={services} />
+      </div>
     </div>
   );
 };
@@ -88,15 +93,25 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
 
   return (
     <nav>
-      <ul className="pagination">
+      <ul className="pagination flex justify-between">
         {currentPage > 1 && (
           <li className="page-item">
-            <button onClick={() => paginate(currentPage - 1)} className="page-link">Previous</button>
+            <button 
+              onClick={() => paginate(currentPage - 1)} 
+              className="page-link bg-green-700 text-green-100 p-2"
+            >
+              Previous
+            </button>
           </li>
         )}
         {currentPage < pageNumbers.length && (
           <li className="page-item">
-            <button onClick={() => paginate(currentPage + 1)} className="page-link">Next</button>
+            <button 
+              onClick={() => paginate(currentPage + 1)} 
+              className="page-link bg-green-700 text-green-100 p-2"
+            >
+              Next
+            </button>
           </li>
         )}
       </ul>

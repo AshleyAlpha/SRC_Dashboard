@@ -9,7 +9,7 @@ import Customers from "./Components/Pages/Customers";
 import Drivers from "./Components/Pages/Drivers";
 import AddService from "./Components/Pages/Addservice";
 import LogoutButton from "./Components/Pages/LogoutForm";
-
+import ServicesChart from "./Components/Pages/ServiceChart";
 function App() {
   return (
     <div className="w-full">
@@ -22,6 +22,7 @@ function App() {
             <Route path="/Drivers" element={<Drivers />} />
             <Route path="/Customers" element={<Customers />} />
             <Route path="/Testimonials" element={<Testimonials />} />
+            <Route path="/ServiceChart" element={<ServicesChart />} />
             <Route path="/LogoutForm" element={<LogoutButton />} />
           </Route>
         </Routes>

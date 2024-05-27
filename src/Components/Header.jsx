@@ -9,10 +9,10 @@ const Header = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
+      setIsSmallScreen(window.innerWidth < 768); 
     };
 
-    handleResize(); // Set initial state
+    handleResize(); 
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -36,13 +36,13 @@ const Header = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center">
-        <NavLink to="/">
+        {/* <NavLink to="/">
           <button className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg mr-4 mb-2 sm:mb-0">
             Back to Dashboard
           </button>
-        </NavLink>
+        </NavLink> */}
 
-        <h1 className="text-center p-4 font-bold">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE!</h1>
+        <h1 className="text-center p-2 font-bold">SRC_YOUR RELIABLE RIDE ANYTIME, ANYWHERE!</h1>
 
         <NavLink to="/Addservice">
           <button className="bg-green-700 text-green-200 py-1 px-4 rounded-3xl text-lg mt-2 sm:mt-0">

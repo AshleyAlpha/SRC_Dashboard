@@ -1,33 +1,22 @@
-
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-const ServiceChart = ({ services }) => {
+const ServicesChart = ({ services }) => {
   const data = {
-    labels: services.map((service) => service.title),
+    labels: services.map(service => service.name),
     datasets: [
       {
         label: 'Number of Services',
-        data: services.map(() => 1), // Each service counts as 1
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
+        data: services.map(service => service.count), // Assuming each service has a `count` property
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
       },
     ],
   };
 
   const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Services Overview',
+    scales: {
+      y: {
+        beginAtZero: true,
       },
     },
   };
@@ -35,4 +24,4 @@ const ServiceChart = ({ services }) => {
   return <Bar data={data} options={options} />;
 };
 
-export default ServiceChart;
+export default ServicesChart;
