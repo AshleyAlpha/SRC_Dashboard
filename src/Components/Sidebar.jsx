@@ -38,7 +38,7 @@ const SideBar = () => {
           Drivers
         </Link>
 
-        <Link to="/ServiceChart" className="text-green-700 flex items-center">
+        <Link to="/Services" className="text-green-700 flex items-center">
           <FaServicestack className="mr-2" />
           Services
         </Link>
