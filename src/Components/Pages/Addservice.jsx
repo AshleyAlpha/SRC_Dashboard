@@ -17,7 +17,7 @@ const AddService = () => {
 
     axios
       .post(
-        "https://safety-drive-connect-backend-project-2.onrender.com/api/v1/service",
+        "https://safety-drive-connect-backend-project-2.onrender.com/api/v1/createService",
         newService
       )
       .then((response) => {

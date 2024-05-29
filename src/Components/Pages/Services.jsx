@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ServicesChart from './ServiceChart'; // Import the chart component
+import ServicesChart from './ServiceChart'; 
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -10,7 +10,7 @@ const Services = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://safety-drive-connect-backend-project-2.onrender.com/api/v1/allservices');
+        const response = await axios.get('https://safety-drive-connect-backend-project-2.onrender.com/api/v1/viewallService');
         setServices(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -32,15 +32,27 @@ const Services = () => {
     console.log(`Edit service at index ${index}`);
   };
 
-  const handleDelete = async (serviceId) => {
+  // const handleDelete = async (serviceId) => {
+  //   try {
+  //     await axios.delete("https://safety-drive-connect-backend-project-2.onrender.com/api/v1/service/:id=" + serviceId);
+  //     setServices(services.filter(service => service._id !== serviceId));
+  //   } catch (error) {
+  //     console.error('Error deleting service:', error);
+  //   }
+  // };
+
+  const handleDelete = async (id) => {
     try {
-      await axios.delete("https://safety-drive-connect-backend-project-2.onrender.com/api/v1/service/:id=" + serviceId);
-      setServices(services.filter(service => service._id !== serviceId));
+      await axios.delete(
+        `https://safety-drive-connect-backend-project-2.onrender.com/api/v1/deleteService/${id}`
+      );
+      setServices(services.filter(service => service._id !== id));
+      console.log('Service deleted successfully');
     } catch (error) {
-      console.error('Error deleting service:', error);
+      console.error('Error deleting Service:', error);
     }
   };
-
+  
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -77,7 +89,7 @@ const Services = () => {
         />
       </div>
       <div className="mt-8">
-        <h2 className="text-2xl mb-4">Services Chart</h2>
+        {/* <h2 className="text-2xl mb-4">Services Chart</h2> */}
         <ServicesChart services={services} />
       </div>
     </div>
