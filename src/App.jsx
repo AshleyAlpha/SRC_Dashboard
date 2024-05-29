@@ -10,6 +10,8 @@ import Drivers from "./Components/Pages/Drivers";
 import AddService from "./Components/Pages/Addservice";
 import LogoutButton from "./Components/Pages/LogoutForm";
 import ServicesChart from "./Components/Pages/ServiceChart";
+import UpdateService from "./Components/Pages/Editservice";
+
 function App() {
   return (
     <div className="w-full">
@@ -23,6 +25,7 @@ function App() {
             <Route path="/Customers" element={<Customers />} />
             <Route path="/Testimonials" element={<Testimonials />} />
             <Route path="/ServiceChart" element={<ServicesChart />} />
+            <Route path="/Editservice/:id" element={<UpdateService />} />
             <Route path="/LogoutForm" element={<LogoutButton />} />
           </Route>
         </Routes>

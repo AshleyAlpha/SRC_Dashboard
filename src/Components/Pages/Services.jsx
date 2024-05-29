@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import ServicesChart from './ServiceChart'; 
 
 const Services = () => {
   const [services, setServices] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [servicesPerPage] = useState(10); // Number of services per page, you can adjust this as needed
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,29 +20,16 @@ const Services = () => {
     };
 
     fetchData();
-
-    return () => {
-      // Cleanup code here if needed
-    };
   }, []);
 
   const indexOfLastService = currentPage * servicesPerPage;
   const indexOfFirstService = indexOfLastService - servicesPerPage;
   const currentServices = services.slice(indexOfFirstService, indexOfLastService);
 
-  const handleEdit = (index) => {
-    console.log(`Edit service at index ${index}`);
+  const handleEdit = (id) => {
+    navigate(`/Editservice/${id}`);
   };
-
-  // const handleDelete = async (serviceId) => {
-  //   try {
-  //     await axios.delete("https://safety-drive-connect-backend-project-2.onrender.com/api/v1/service/:id=" + serviceId);
-  //     setServices(services.filter(service => service._id !== serviceId));
-  //   } catch (error) {
-  //     console.error('Error deleting service:', error);
-  //   }
-  // };
-
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(
@@ -49,7 +38,7 @@ const Services = () => {
       setServices(services.filter(service => service._id !== id));
       console.log('Service deleted successfully');
     } catch (error) {
-      console.error('Error deleting Service:', error);
+      console.error('Error deleting service:', error);
     }
   };
   
@@ -67,12 +56,12 @@ const Services = () => {
             </tr>
           </thead>
           <tbody>
-            {currentServices.map((service, index) => (
-              <tr key={index} className="border-t">
+            {currentServices.map((service) => (
+              <tr key={service._id} className="border-t">
                 <td className="py-2">{service.name}</td>
                 <td className="py-2">{service.description}</td>
                 <td className="py-2">
-                  <button onClick={() => handleEdit(index)} className="text-[#a3d6a3] mr-2 mb-2 block">Edit</button>
+                  <button onClick={() => handleEdit(service._id)} className="text-[#a3d6a3] mr-2 mb-2 block">Edit</button>
                   <button onClick={() => handleDelete(service._id)} className="text-green-700 block">Delete</button>
                 </td>
               </tr>
@@ -89,7 +78,6 @@ const Services = () => {
         />
       </div>
       <div className="mt-8">
-        {/* <h2 className="text-2xl mb-4">Services Chart</h2> */}
         <ServicesChart services={services} />
       </div>
     </div>
@@ -116,6 +104,16 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
             </button>
           </li>
         )}
+        {pageNumbers.map(number => (
+          <li key={number} className="page-item">
+            <button 
+              onClick={() => paginate(number)} 
+              className={`page-link ${number === currentPage ? 'bg-green-900 text-white' : 'bg-green-700 text-green-100'} p-2`}
+            >
+              {number}
+            </button>
+          </li>
+        ))}
         {currentPage < pageNumbers.length && (
           <li className="page-item">
             <button 
